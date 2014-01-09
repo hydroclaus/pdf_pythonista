@@ -1,30 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-sys arg: give one integer!
-         0 ... today
-        +1 ... tomorrow
-
-"""
 
 __author__ = "Claus Haslauer (mail@planetwater.org)"
 __version__ = "Revision: 0.1 $"
 __date__ = "Date: 2014/01/05 $"
 __copyright__ = "Copyright (c) 2014 Claus Haslauer"
-__license__ = "Python"
-
-
-# import sys
+__license__ = "CC BY-NC 3.0"
 
 import os
 import sys
-
 import requests
 import datetime
 import dropbox
 import console
 import webbrowser
-
 
 ## DROPBOX STUFF ---------------------------------------------------------------
 TOKEN_FILENAME = 'Pythonista_2.token'
@@ -38,6 +27,7 @@ base_url = 'http://download_URL/'
 usr_name = 'usr'
 pw ='pw'
 
+## DROPBOX related functions ---------------------------------------------------
 def configure_token(dropbox_session):
     if os.path.exists(TOKEN_FILENAME):
         token_file = open(TOKEN_FILENAME)
@@ -67,6 +57,14 @@ def first_access(sess):
 
 
 def main():
+    """
+    sys arg: give one integer!
+             0 ... today
+            +1 ... tomorrow
+
+    some more description here:
+        http://planetwater.org/2014/01/09/fun-with-python-script-for-daily-newspaper/
+    """
     # start with a clear console
     console.clear()
     
