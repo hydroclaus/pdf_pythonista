@@ -79,17 +79,9 @@ def main():
     
     # get today's date (for pdf file name)
     today = datetime.datetime.utcnow()
-    year = today.strftime('%Y')
-    month = today.strftime('%m')
-    day = today.strftime('%d')
-    print 'day=', day
-    
-    day_with_delta = int(day) + delta_day
-    print 'day with delta=', day_with_delta
-    
-    today_string = year + '_' + month + '_%02i'% day_with_delta
-    filename = today_string + '.pdf'
-    
+    target_date = today + datetime.timedelta(days=delta_day)
+    filename = target_date.strftime("%Y_%m_%d.pdf")
+
     ## check if the file I am about to download might already exist on dropbox
     drb_path = '/Apps/Pythonista/'
     exists = client.search(drb_path, filename)
